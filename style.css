@@ -1,0 +1,299 @@
+body {
+  margin: 0;
+  background: #0b0b0b;
+  color: #eaeaea;
+  font-family: 'Poppins', sans-serif;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background: #111;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  width: 320px;
+  box-shadow: 0 0 30px rgba(255,111,174,0.2);
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  color: #ff6fae;
+}
+
+.soft {
+  opacity: 0.85;
+  margin-bottom: 30px;
+}
+
+.menu a {
+  display: block;
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 12px;
+  background: #1a1a1a;
+  color: #ffb6d9;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  background: #ff6fae;
+  color: #000;
+}
+
+textarea {
+  width: 100%;
+  height: 250px;
+  background: #111;
+  color: #ffb6d9;
+  border: none;
+  border-radius: 12px;
+  padding: 15px;
+  resize: none;
+  font-size: 14px;
+}
+@media (max-width: 480px) {
+  .card {
+    width: 90%;
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .menu a {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  textarea {
+    height: 220px;
+    font-size: 14px;
+  }
+}
+/* ===== JOURNAL FULL SCREEN ===== */
+
+.journal-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.journal-page .card {
+  width: 100%;
+  max-width: 900px;
+  height: calc(100vh - 40px);
+  padding: 25px;
+}
+
+.journal-page textarea {
+  width: 100%;
+  height: calc(100vh - 220px);
+  font-size: 16px;
+  line-height: 1.7;
+}
+@media (max-width: 480px) {
+  .journal-page .card {
+    height: calc(100vh - 20px);
+    padding: 20px;
+  }
+
+  .journal-page textarea {
+    height: calc(100vh - 200px);
+    font-size: 15px;
+  }
+}
+/* Journal date aesthetic */
+.journal-page textarea {
+  caret-color: #ff6fae;
+}
+
+.journal-page textarea::selection {
+  background: rgba(255, 111, 174, 0.25);
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-card {
+  animation: fadeUp 1.2s ease forwards;
+}
+
+.animate-title {
+  animation: fadeUp 1.4s ease forwards;
+}
+
+.animate-text {
+  animation: fadeUp 1.6s ease forwards;
+}
+
+.animate-menu {
+  animation: fadeUp 1.8s ease forwards;
+}
+@keyframes softGlow {
+  0% { box-shadow: 0 0 15px rgba(255,111,174,0.15); }
+  50% { box-shadow: 0 0 25px rgba(255,111,174,0.35); }
+  100% { box-shadow: 0 0 15px rgba(255,111,174,0.15); }
+}
+
+.card {
+  animation: softGlow 4s infinite ease-in-out;
+}
+.menu a {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(255,111,174,0.25);
+}
+/* ===== FLOATING STARS / DOTS ===== */
+
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stars span {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 182, 217, 0.6);
+  border-radius: 50%;
+  animation: float 12s linear infinite;
+}
+
+/* Different positions */
+.stars span:nth-child(1) { left: 20%; top: 80%; animation-duration: 14s; }
+.stars span:nth-child(2) { left: 50%; top: 90%; animation-duration: 18s; }
+.stars span:nth-child(3) { left: 70%; top: 85%; animation-duration: 16s; }
+.stars span:nth-child(4) { left: 30%; top: 95%; animation-duration: 20s; }
+.stars span:nth-child(5) { left: 85%; top: 88%; animation-duration: 22s; }
+
+@keyframes float {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+
+/* Ensure card stays above stars */
+.card {
+  position: relative;
+  z-index: 1;
+}
+/* ===== NOTE PAGE RESPONSIVE ===== */
+
+.note-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.note-page .card {
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+}
+
+@media (max-width: 480px) {
+  .note-page .card {
+    padding: 22px;
+  }
+
+  .note-page h1 {
+    font-size: 22px;
+  }
+
+  .note-page .soft {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}
+/* ===== PASSWORD SCREEN ===== */
+
+.lock-screen {
+  position: fixed;
+  inset: 0;
+  background: #0b0b0b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.lock-card {
+  background: #111;
+  padding: 35px;
+  border-radius: 20px;
+  text-align: center;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 0 30px rgba(255,111,174,0.25);
+}
+
+.lock-card h1 {
+  color: #ff6fae;
+  margin-bottom: 10px;
+}
+
+.lock-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 15px 0;
+  border-radius: 12px;
+  border: none;
+  background: #1a1a1a;
+  color: #ffb6d9;
+  text-align: center;
+  font-size: 16px;
+}
+
+.lock-card input::placeholder {
+  color: #ffb6d9;
+  opacity: 0.6;
+}
+
+.lock-card button {
+  background: #ff6fae;
+  color: #000;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.lock-card button:hover {
+  opacity: 0.9;
+}
+
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Journal 📓</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="journal-page">
+
+  <!-- PASSWORD SCREEN -->
+  <div id="lockScreen" class="lock-screen">
+    <div class="lock-card">
+      <h1>🗝️ A Quiet key</h1>
+      <p class="soft">This space is not for everyone</p>
+
+      <input
+        type="password"
+        id="passwordInput"
+        placeholder="Enter the key"
+      />
+
+      <button onclick="unlock()">Enter</button>
+    </div>
+  </div>
+
+  <!-- JOURNAL -->
+  <div id="journalContainer" class="card" style="display:none;">
+    <h1>📓 Your Journal</h1>
+    <p class="soft">Write anything. it stays here 🖤</p>
+
+    <textarea id="journal" placeholder="start here..."></textarea>
+  </div>
+
+  <script>
+    const CORRECT_PASSWORD = "sunshine";
+
+    function unlock() {
+      const input = document.getElementById("passwordInput").value;
+
+      if (input === CORRECT_PASSWORD) {
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("journalContainer").style.display = "block";
+      } else {
+        alert("not for everyone 🖤");
+      }
+    }
+
+    const journal = document.getElementById("journal");
+    const today = new Date().toDateString();
+    const lastDate = localStorage.getItem("journalDate");
+    const savedText = localStorage.getItem("journalText") || "";
+
+    function getFormattedDate() {
+      return new Date().toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+    }
+
+    journal.value = savedText;
+
+    if (savedText === "" || lastDate !== today) {
+      journal.value += `\n— ${getFormattedDate()} —\n\n`;
+      localStorage.setItem("journalDate", today);
+    }
+
+    journal.addEventListener("input", () => {
+      localStorage.setItem("journalText", journal.value);
+    });
+  </script>
+
+</body>
+</html>

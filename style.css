@@ -39,7 +39,7 @@ h1 {
 
 .soft {
   opacity: 0.85;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .menu a {
@@ -111,17 +111,27 @@ h1 {
   background: #0b0b0b;
 }
 
+/* Sticky header (prevents disappearing text) */
+.journal-header {
+  position: sticky;
+  top: 0;
+  background: #0b0b0b;
+  z-index: 2;
+  padding-bottom: 10px;
+}
+
+/* Journal container */
 .journal-page .card {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding: 24px 18px;
+  padding: 22px 16px;
   background: #0b0b0b;
   border-radius: 0;
   box-shadow: none;
 }
 
-/* Center heading + subtitle */
+/* Center heading & subtitle */
 .journal-page h1 {
   text-align: center;
   margin-bottom: 6px;
@@ -129,13 +139,19 @@ h1 {
 
 .journal-page .soft {
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
-/* ===== JOURNAL EDITOR (SINGLE SOURCE OF TRUTH) ===== */
+/* Emoji alignment fix */
+.journal-page h1 span {
+  vertical-align: middle;
+}
+
+/* ===== JOURNAL EDITOR ===== */
 #journal {
   width: 100%;
-  height: 62vh;
+  min-height: 50vh;
+  max-height: 65vh;
   background: transparent;
   border: none;
   outline: none;
@@ -143,7 +159,7 @@ h1 {
   color: #ffb6d9;
   font-size: 16px;
   line-height: 1.8;
-  padding: 8px 0;
+  padding: 12px 0 6px 0;
   caret-color: #ff6fae;
   overflow-y: auto;
 }
@@ -214,11 +230,12 @@ h1 {
 /* ===== MOBILE ===== */
 @media (max-width: 480px) {
   .journal-page .card {
-    padding: 20px 14px;
+    padding: 18px 14px;
   }
 
   #journal {
-    height: 58vh;
+    min-height: 48vh;
+    max-height: 60vh;
     font-size: 15px;
   }
 

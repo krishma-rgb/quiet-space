@@ -178,18 +178,20 @@ h1 {
 }
 
 /* ===== NOTE PAGE ===== */
+/* ===== NOTE PAGE (SCROLL FIXED) ===== */
+
 .note-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
-  padding: 20px;
+  padding: 24px 16px;
+  background: #0b0b0b;
 }
 
 .note-page .card {
   width: 100%;
   max-width: 600px;
+  margin: 0 auto;        /* center horizontally */
 }
+
 
 /* ===== PASSWORD SCREEN ===== */
 .lock-screen {
@@ -256,4 +258,5 @@ h1 {
     font-size: 14px;
   }
 }
+
 

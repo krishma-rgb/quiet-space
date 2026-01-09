@@ -11,6 +11,10 @@ html, body {
   background: #0b0b0b;
   font-family: 'Poppins', sans-serif;
 }
+body {
+  color: #eaeaea;   /* default readable light color */
+}
+
 
 /* ===== LANDING PAGE ===== */
 .center {
@@ -38,9 +42,11 @@ h1 {
 }
 
 .soft {
-  opacity: 0.85;
+  color: #bdbdbd;      /* soft light grey */
+  opacity: 1;
   margin-bottom: 16px;
 }
+
 
 .menu a {
   display: block;
@@ -139,8 +145,11 @@ h1 {
 
 .journal-page .soft {
   text-align: center;
+  color: #bdbdbd;
   margin-bottom: 14px;
 }
+
+
 
 /* Emoji alignment fix */
 .journal-page h1 span {
@@ -247,3 +256,4 @@ h1 {
     font-size: 14px;
   }
 }
+

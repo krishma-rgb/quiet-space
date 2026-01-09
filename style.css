@@ -111,15 +111,15 @@ h1 {
   background: #0b0b0b;
 }
 
-.journal-page .card {
+.journal-page .journal-card {
   width: 100vw;
   min-height: 100vh;
   max-width: none;
   border-radius: 0;
   box-shadow: none;
   padding: 20px 16px;
-  text-align: center;
 }
+
 
 #journal {
   width: 100%;
@@ -209,3 +209,4 @@ h1 {
     width: 90%;
   }
 }
+

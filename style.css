@@ -122,14 +122,24 @@ h1 {
   box-shadow: none;
 }
 
-.journal-page h1,
-.journal-page .soft {
-  padding-left: 0;
+/* ===== JOURNAL HEADER ALIGNMENT ===== */
+
+.journal-page h1 {
+  text-align: center;
+  margin-bottom: 6px;
 }
+
+.journal-page .soft {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+
+/* ===== JOURNAL WRITING AREA ===== */
 
 .journal-page textarea {
   width: 100%;
-  min-height: calc(100vh - 160px);
+  height: 65vh;              /* 👈 key change */
   background: transparent;
   border: none;
   outline: none;
@@ -137,11 +147,12 @@ h1 {
   color: #ffb6d9;
   font-size: 16px;
   line-height: 1.8;
-  padding: 6px 0;     /* IMPORTANT */
-  margin: 0;
+  padding: 6px 0;
+  margin-top: 8px;
 }
-
-
+.journal-page textarea {
+  overflow-y: auto;
+}
 #journal {
   width: 100%;
   min-height: calc(100vh - 160px);
@@ -240,5 +251,20 @@ h1 {
     font-size: 15px;
   }
 }
+@media (max-width: 480px) {
+  .journal-page textarea {
+    height: 60vh;
+    font-size: 15px;
+  }
+
+  .journal-page h1 {
+    font-size: 28px;
+  }
+
+  .journal-page .soft {
+    font-size: 14px;
+  }
+}
+
 
 
